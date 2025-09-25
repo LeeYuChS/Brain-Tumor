@@ -21,10 +21,10 @@ The project features a progressive training approach where the training dataset 
 
 ### Key Features
 - Progressive training with milestone-based dataset expansion
-- Comprehensive evaluation metrics (Accuracy, Precision, Recall, F1-Score, Specificity, AUC-ROC)
+- A complete classify framwork(if you need to expand model would be easily)
+- Grad-cam tool for model explainity
 - Advanced visualization tools for training history and model comparison
 - Flexible data loading with augmentation support
-- Independent test dataset creation and evaluation
 
 ## Project Structure
 
@@ -46,7 +46,6 @@ CT-brain/
 │   ├── plot.py                   # Visualization tools (history, comparison, confusion matrix)
 │   └── dims_check.py             # Shape / embedding debug helper
 ├── CT_meta/                       # Main dataset (Healthy / Tumor)
-├── CT_test/                       # Auto-regenerated test dataset (created by test_inference.py)
 ├── checkpoints/                   # Saved models & training histories
 ├── evaluation_results/            # Evaluation reports & plots
 ├── training_plots/                # Generated training history figures
@@ -58,16 +57,16 @@ CT-brain/
 ### Prerequisites
 
 ```bash
-pip install torch torchvision
 pip install scikit-learn
 pip install matplotlib seaborn
 pip install numpy pandas
 pip install tqdm
+pip install torch==2.7.1 torchvision==0.22.1 torchaudio==2.7.1 --index-url https://download.pytorch.org/whl/cu118
 ```
 
-### Dataset Preparation
+### Dataset Structure
 
-1. **Organize your CT scan images:**
+**Organize your CT scan images:**
    ```
    CT_meta/
    ├── Healthy/
@@ -78,11 +77,6 @@ pip install tqdm
        ├── ct_tumor_001.jpg
        ├── ct_tumor_002.jpg
        └── ...
-   ```
-
-2. **Create independent test dataset:**
-   ```bash
-   python create_test_dataset.py
    ```
 
 ### Configuration
@@ -127,9 +121,7 @@ python train.py
 
 ### Comprehensive Model Evaluation
 
-Two options are provided:
-
-1. Quick evaluation with automatic 10% test split (recommended):
+Quick evaluation with automatic 10% test split (recommended):
     ```bash
     python test_inference.py
     ```
@@ -138,12 +130,6 @@ Two options are provided:
     - Loads the specified model checkpoint
     - Computes metrics + confusion matrix (+ ROC for binary)
     - Saves results under `evaluation_results/`
-
-2. Manual evaluation using a pre-created test set:
-    ```bash
-    python test_inference.py
-    ```
-    Ensure `CT_test/` already exists (created via `create_test_dataset.py` or manually).
 
 **Metrics Calculated:**
 - **Accuracy**: Overall classification accuracy
@@ -300,14 +286,6 @@ If you want a fixed (stable) test set:
 - `training_plots/`: Generated training curves
 - `gradcam_results/`: Grad-CAM outputs
 
-## Contributing
-
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Open Pull Request
-
 
 ## Data Sources
 
@@ -342,14 +320,6 @@ Under CC BY-NC-SA 4.0 you MUST:
 
 Do NOT use the data (or models trained directly on it) for commercial or clinical decision-making without proper authorization and validation.
 
-### Recommended Directory Layout
-```
-<project_root>/
-├── CT_meta/
-│   ├── Healthy/   # Normal brain CT images
-│   └── Tumor/     # Tumor-positive CT images
-└── (optional) CT_test/  # Generated automatically by test_inference.py
-```
 
 ### Environment / Path Configuration
 Edit `config.py` to change `image_path`. If you externalize data, keep the same subfolder names. Large datasets can be mounted (e.g. a network drive) and pointed to without copying.
