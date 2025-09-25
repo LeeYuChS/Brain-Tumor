@@ -187,21 +187,11 @@ python grad-cam.py
 ```
 Images will be saved to `gradcam_results/`. Replace or update the image path above if you produce alternative samples.
 
-## Model Performance Comparison
-
-### Performance Summary
-
-![Model Comparison Table](training_plots/table1.png)
-
-*Comprehensive comparison of different model architectures showing accuracy, precision, recall, F1-score, and other key metrics*
-
-The table above demonstrates the performance of various deep learning models on the CT brain tumor classification task, with RNViT showing competitive results combining the strengths of both convolutional and transformer architectures.
-
 ## Model Architecture Details
 
 ### RNViT (ResNet-Vision Transformer)
 
-![RNViT Architecture](arch/arch_rnvit.jpg)
+![RNViT Architecture](arch/RNViT.jpg)
 
 *Detailed architecture diagram of the RNViT model showing the integration of ResNet backbone with Vision Transformer components*
 
