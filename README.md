@@ -159,6 +159,11 @@ plot_metrics_comparison(histories)
 ## Results Visualization
 
 ### Training History Plots
+
+![RNViT Training History](training_plots/RNViT_polt.jpg)
+
+*RNViT model training history showing loss and accuracy curves over epochs during progressive training*
+
 - **Loss Curves**: Training and validation loss over epochs
 - **Accuracy Curves**: Training and validation accuracy progression
 - **Metrics Dashboard**: Precision, Recall, F1-Score tracking
@@ -182,9 +187,24 @@ python grad-cam.py
 ```
 Images will be saved to `gradcam_results/`. Replace or update the image path above if you produce alternative samples.
 
+## Model Performance Comparison
+
+### Performance Summary
+
+![Model Comparison Table](training_plots/table1.png)
+
+*Comprehensive comparison of different model architectures showing accuracy, precision, recall, F1-score, and other key metrics*
+
+The table above demonstrates the performance of various deep learning models on the CT brain tumor classification task, with RNViT showing competitive results combining the strengths of both convolutional and transformer architectures.
+
 ## Model Architecture Details
 
 ### RNViT (ResNet-Vision Transformer)
+
+![RNViT Architecture](arch/arch_rnvit.jpg)
+
+*Detailed architecture diagram of the RNViT model showing the integration of ResNet backbone with Vision Transformer components*
+
 ```
 Input (224x224x3) 
     ↓
