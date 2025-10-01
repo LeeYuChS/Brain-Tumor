@@ -156,24 +156,6 @@ histories = {
 plot_metrics_comparison(histories)
 ```
 
-## Results Visualization
-
-### Training History Plots
-
-![RNViT Training History](training_plots/RNViT_polt.jpg)
-
-*RNViT model training history showing loss and accuracy curves over epochs during progressive training*
-
-- **Loss Curves**: Training and validation loss over epochs
-- **Accuracy Curves**: Training and validation accuracy progression
-- **Metrics Dashboard**: Precision, Recall, F1-Score tracking
-- **Learning Rate Schedule**: Dynamic learning rate visualization
-
-### Evaluation Reports
-- **ROC Curves**: Receiver Operating Characteristic analysis
-- **Precision-Recall Curves**: Performance at different thresholds
-- **Confusion Matrix**: Detailed classification results
-- **Model Comparison**: Side-by-side performance analysis
 
 ### Grad-CAM Example
 
@@ -351,5 +333,6 @@ Murtoza Likhon. Brain tumor multimodal image (CT & MRI) [Data set]. Kaggle. 2024
 
 ### Ethical Notice
 This repository is for research and educational purposes. Medical imaging models require rigorous clinical validation before any deployment in diagnostic settings.
+
 
 ---
